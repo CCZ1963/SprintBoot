@@ -14,8 +14,8 @@ import java.util.Map;
 @RequestMapping("/api")
 public class UserRestTresController {
 
-    @GetMapping("/UserRestTresController") // http://localhost:8080/api/UserRestTresController
-    // @RequestMapping("/UserRestTresController") // RequestMapping lo mismo que GetMapping
+    @GetMapping("/UserRestTresAController") // http://localhost:8080/api/UserRestTresAController
+    // @RequestMapping("/UserRestTresAController") // RequestMapping lo mismo que GetMapping
     @ResponseBody
     public Map<String, Object> details() {
         Map<String, Object> body = new HashMap<>();
@@ -25,8 +25,8 @@ public class UserRestTresController {
         return body; // Devuelve un JSON
     }
 
-    // @GetMapping("/UserRestCuatroController") // http://localhost:8080/api/UserRestCuatroController
-    @RequestMapping(path="/UserRestCuatroController", method = RequestMethod.GET)
+    // @GetMapping("/UserRestTresBController") // http://localhost:8080/api/UserRestTresBController
+    @RequestMapping(path="/UserRestTresBController", method = RequestMethod.GET)
     // RequestMapping puede ser RequestMethod. GET, POST, DELETE ENTRE OTROS
     @ResponseBody
     public Map<String, Object> detailsdos() {
