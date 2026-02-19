@@ -8,10 +8,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController // Sirve para crear APIs REST
-public class UserRestController {
+@RequestMapping("/api")
+public class UserRestDosController {
 
-    // Ruta diferente, no pueden haber duplicados porque sino Spring Boot no sabe a cuál escoger
-    @GetMapping("/detalleUserRestController") // http://localhost:8080/detalleUserRestController
+    // Esta no es una ruta duplicada porque se agrego api
+    @GetMapping("/detalleUserRestController") // http://localhost:8080/api/detalleUserRestController
     public Map<String, Object> details() {
         Map<String, Object> body = new HashMap<>();
         body.put("title", "Hola Mundo Spring Boot");
