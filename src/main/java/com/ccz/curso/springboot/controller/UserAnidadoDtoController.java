@@ -1,12 +1,9 @@
 package com.ccz.curso.springboot.controller;
 
-import com.ccz.curso.springboot.dto.UserDto;
+import com.ccz.curso.springboot.dto.UserAnidadoDto;
 import com.ccz.curso.springboot.model.User;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
@@ -14,20 +11,20 @@ import java.util.Map;
 
 @RestController // Sirve para crear APIs REST
 @RequestMapping("/api")
-public class UserRestDtoController {
+public class UserAnidadoDtoController {
 
-    @GetMapping("/UserRestDtoController") // http://localhost:8080/api/UserRestDtoController
+    @GetMapping("/UserAnidadoDtoController") // http://localhost:8080/api/UserAnidadoDtoController
     // @RequestMapping("/UserRestDtoController") // RequestMapping lo mismo que GetMapping
     //@ResponseBody Con esta instrucción avisa a Spring que no busque ninguna vista HTML
-    public UserDto details() {
-        UserDto userDto = new UserDto();
+    public UserAnidadoDto details() {
+        UserAnidadoDto userAnidadoDto = new UserAnidadoDto();
         User user = new User("Andrés", "Carbajal");
-        userDto.setTitle("Hola Mundo desde un DTO");
-        userDto.setUser(user);
-        return userDto; // Devuelve un JSON
+        userAnidadoDto.setTitle("Hola Mundo desde un DTO");
+        userAnidadoDto.setUser(user);
+        return userAnidadoDto; // Devuelve un JSON
     }
 
-    @GetMapping(path = "/UserRestDtoAController") // http://localhost:8080/api/UserRestDtoAController
+    @GetMapping(path = "/UserAnidadoDtoAController") // http://localhost:8080/api/UserAnidadoDtoAController
     public Map<String, Object> detailsDto() {
 
         User user1 = new User("Juan", "Salazar");

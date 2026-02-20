@@ -1,10 +1,9 @@
 package com.ccz.curso.springboot.dto;
 
-public class UserDto {
+public class UserSinLastnameDto {
 
     private String title;
     private String name;
-    private String lastname;
 
     public String getTitle() { return title; }
 
@@ -14,7 +13,4 @@ public class UserDto {
 
     public void setName(String name) { this.name = name; }
 
-    public String getLastname() { return lastname; }
-
-    public void setLastname(String lastname) { this.lastname = lastname; }
 }
