@@ -7,11 +7,32 @@
     <title th:text="${title}">Título</title>
 </head>
 <body>
+    <h1 th:text="${title}"></h1>
     <div th:if="${users.size()==0}">No tiene usuarios</div>
-
+    <!-- También podría ser así -->
+    <!-- <div th:if="${user.isEmpty()}" th:text="${'No tiene usuarios'}"></div> -->
     <!-- Opcional: Para mostrar la lista cuando sí hay usuarios -->
     <ul th:unless="${#lists.isEmpty(users)}">
-        <li th:each="user : ${users}" th:text="${user.name + ' ' + user.lastname + ' - Email: ' + user.email}"></li>
+        <li th:each="user : ${users}"
+            th:text="${user.name + ' ' + user.lastname + ' - Email: ' + (user.email ?: 'No tiene email')}">
+        </li>
     </ul>
+    <table th:if="${not users.isEmpty()}">
+        <thead>
+        <tr>
+            <th>name</th>
+            <th>lastname</th>
+            <th>email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user: ${users}">
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.lastname}"></td>
+            <td th:if="${user.email}" th:text="${user.email}"></td>
+            <td th:if="${not (user.email!=null)}" th:text="${' No tiene Email '}"></td>
+        </tr>
+        </tbody>
+    </table>
 </body>
 </html>
