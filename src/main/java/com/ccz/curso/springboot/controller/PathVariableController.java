@@ -25,7 +25,7 @@ public class PathVariableController {
 
     @GetMapping("/foo1/{message}/{id}/{name}")
     // http://localhost:8080/api/var/foo1/Vamos%20por%20todo/5624/Juan
-    // message debe llamarse igual en todo el método, no podemos cambiarle de nombre
+    // message, id y name debe llamarse igual en todo el método, no podemos cambiarle de nombre
     public Map<String, Object> foo1(@PathVariable() String message, @PathVariable Long id, @PathVariable String name){
         // http://localhost:8080/api/var/foo/Este%20es%20un%20mensaje%20de%20texto
         Map<String,Object> json = new HashMap<>();
