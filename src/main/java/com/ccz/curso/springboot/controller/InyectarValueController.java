@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -21,7 +22,7 @@ public class InyectarValueController {
     @Value("${dato.message}")
     private String message;
     @Value("${dato.listOfValues}")
-    private String[] listOfValues;
+    private String[] listOfValues; // Como Array, resultado e JSON es el mismo
 
     // Configurado en WebAppApplication
     // Variables en values.properties
@@ -32,7 +33,14 @@ public class InyectarValueController {
     @Value("${valor.mensaje}")
     private String mensaje;
     @Value("${valor.listaDeValores}")
-    private String[] listaDeValores;
+    // private String[] listaDeValoreses
+    private List<String> listaDeValores; // Como lista, resultado e JSON es el mismo
+    // La lista es más manipulable
+    @Value("#{'${valor.listaDeValores}'.toUpperCase().split(',')}")
+    private List<String> listaDeValorestoUpperCase;
+    @Value("#{'${valor.listaDeValores}'}")
+    private String listaDeValoresString;
+
 
     // Configurado en WebAppApplication
     // Variables en values1.properties
@@ -100,14 +108,18 @@ public class InyectarValueController {
     @GetMapping("/valuesdos")
     // El archivo values.properties debe estar en la carpeta src/main/resources
     // Y debe configurarse en WebAppApplication @PropertySource("classpath:values.properties")
-    public Map<String, Object> valuesdos(@Value("${valor.otromensaje}") String otromensaje) {
+    public Map<String, Object> valuesdos(@Value("${valor.otromensaje}") String otromensaje,
+                                         @Value("#{'${valor.otromensaje}'.toUpperCase()}") String otromensaje1) {
 
         Map<String, Object> json = new HashMap<>();
         json.put("nombre", nombre);
         json.put("codigo", codigo);
         json.put("mensaje", mensaje);
         json.put("othermessagedos", otromensaje);
+        json.put("othermessage1", otromensaje1);
         json.put("listOfValuesdos", listaDeValores);
+        json.put("listaDeValorestoUpperCase", listaDeValorestoUpperCase);
+        json.put("listaDeValoresString", listaDeValoresString);
 
         return json;
     }
@@ -128,7 +140,9 @@ public class InyectarValueController {
 
     @GetMapping("/values2")
     // http://localhost:8080/api/var/values2
-    public Map<String, Object> values2(@Value("${values2.varia5}") String[] varia5) {
+    public Map<String, Object> values2(@Value("${values2.varia5}") List<String> varia5) {
+        // public Map<String, Object> values2(@Value("${values2.varia5}") String[] varia5) {
+        // Mismo resultado
 
         Map<String, Object> json = new HashMap<>();
         json.put("varia1", varia1);
@@ -142,7 +156,10 @@ public class InyectarValueController {
 
     @GetMapping("/values3")
     // http://localhost:8080/api/var/values3
-    public Map<String, Object> values3(@Value("${values3.variab5}") String[] variab5) {
+    public Map<String, Object> values3(@Value("${values3.variab5}") String[] variab5,
+                                       @Value("${values3.variab5}") String[] variab6,
+                                       @Value("#{'${valor.listaDeValores}'.toUpperCase().split(',')}") String[] variab7,
+                                       @Value("#{'${valor.listaDeValores}'}") String variab8) {
 
         Map<String, Object> json = new HashMap<>();
         json.put("variab1", variab1);
@@ -150,6 +167,9 @@ public class InyectarValueController {
         json.put("variab3", variab3);
         json.put("variab4", variab4);
         json.put("variab5", variab5);
+        json.put("variab6", variab6);
+        json.put("variab7", variab7);
+        json.put("variab8", variab8);
 
         return json;
     }
