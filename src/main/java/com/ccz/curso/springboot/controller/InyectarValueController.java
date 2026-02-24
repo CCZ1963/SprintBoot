@@ -32,6 +32,14 @@ public class InyectarValueController {
     private String codigo;
     @Value("${valor.mensaje}")
     private String mensaje;
+    @Value("#{${valor.valoresMap}}")
+    private Map<String, Object> valoresMap;
+    @Value("#{${valor.valoresMap}.product}")
+    private String product;
+    @Value("#{${valor.valoresMap}.description}")
+    private String description;
+    @Value("#{${valor.valoresMap}.price}")
+    private Long price;
     @Value("${valor.listaDeValores}")
     // private String[] listaDeValoreses
     private List<String> listaDeValores; // Como lista, resultado e JSON es el mismo
@@ -117,6 +125,10 @@ public class InyectarValueController {
         json.put("mensaje", mensaje);
         json.put("othermessagedos", otromensaje);
         json.put("othermessage1", otromensaje1);
+        json.put("valoresMap", valoresMap);
+        json.put("product", product);
+        json.put("description", description);
+        json.put("price", price);
         json.put("listOfValuesdos", listaDeValores);
         json.put("listaDeValorestoUpperCase", listaDeValorestoUpperCase);
         json.put("listaDeValoresString", listaDeValoresString);
