@@ -14,7 +14,7 @@ public class EnviarJsonPostController {
         // Jackson necesita instanciar la clase User. Para ello, busca el constructor por defecto (vacío).
         // Si no existe el constructor vacío, Jackson no puede crear la instancia inicial y lanza un error.
         user.setName(user.getName().toUpperCase());
-        // Convertirlo name en mayúsculas
+        // Convertir name en mayúsculas
         return user;
     }
 }

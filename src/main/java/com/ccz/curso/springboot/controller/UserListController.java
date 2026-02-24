@@ -57,8 +57,8 @@ public class UserListController {
     }
 
     @ModelAttribute("users")
-    public List<User> enviarLista(){
-        List<User> users = Arrays.asList(new User("Sara", "mendoza", "saramendoza@email.com"),
+    public List<User> enviarLista(){ // Estos datos son requeridos por list_user.html a tarvés de users
+        List<User> users = Arrays.asList(new User("Sara", "Mendoza", "saramendoza@email.com"),
                 new User("Alicia", "Vivanco"),
                 new User("César", "Palacios", "cpalacios@email.com"),
                 new User("Mirtha", "Juliaca", "juliacam@email.com"));

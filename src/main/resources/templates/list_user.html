@@ -34,5 +34,11 @@
         </tr>
         </tbody>
     </table>
+    <br><a th:href="@{/detalle}">Ver details.html</a><br>
+    <a th:href="@{/api/UserRestDtoAController}">Ver JSON</a><br>
+    <a th:href="@{/api/params/foo?message=Colocar aquí el mensaje}">Ver URL con Mensaje</a><br>
+    <a th:href="@{/api/params/foo(message='Este es un nuevo mensaje')}">Ver URL con Mensaje</a><br>
+    <a th:href="@{/api/variosparam/foo1(text='Colocar aquí el mensaje', code=1000)}">Ver URL con Mensaje y Código</a>
+</body>
 </body>
 </html>

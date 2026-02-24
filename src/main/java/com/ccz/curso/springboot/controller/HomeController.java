@@ -14,6 +14,7 @@ public class HomeController {
         // return "redirect:/otrodetalle";
         // return "forward:/otrodetalle";
         // return "redirect:/api/params/foo1";
+        // return "redirect:<dirección existente a la cual queremos redirigir>
         /* La principal diferencia es que redirect ocurre en el navegador (cliente),
          cambiando la URL y creando una nueva solicitud, mientras que forward sucede
          internamente en el servidor, manteniendo la misma URL y reutilizando

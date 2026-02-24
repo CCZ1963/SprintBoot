@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @RestController
-@RequestMapping("api2")
+@RequestMapping("/api2")
 public class ListController {
 
    @GetMapping("/list")
